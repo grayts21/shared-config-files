@@ -1,0 +1,65 @@
+[alias]
+	alist = "!git config --list" # List of these alias
+	ali = "!git config --list | findstr 'alias'"
+	amend = commit --amend --no-edit
+	ast = status --short --branch
+	aco = commit --all -m
+	ame = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
+	ames = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
+	amepu = rebase --stat --autosquash master..HEAD
+	alogc = log -3
+	alog = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	aloga = log --all --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	alogh = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	alogm = log master --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	alogl = log --decorate=full --max-count=1
+	ashfi = show --name-only 
+	aundo = reset --mixed HEAD~1 # should this be --soft or --mixed
+	aunco = reset --soft HEAD~1
+	ashow = show HEAD
+	atopush = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	asquall = rebase --interactive --stat --autosquash HEAD~4
+	asqu = rebase --interactive --stat --autosquash --root
+	areb = rebase --interactive --stat --autosquash --root
+	ahist = reflog
+	aadd = add -A # add and look for renamed files
+[help]
+	autocorrect = 1
+[core]
+	editor = notepad
+	autocrlf = false
+	symlinks = true
+[sequence]
+	editor = notepad
+[Rebase]
+ 	autoSquash = true
+ 	abbreviateCommands = true
+ 	instructionFormat = " |%d %s [%cn] (%cD)"
+ 	stat = true
+[push]
+	default = matching
+[branch]
+	autosetuprebase = always
+#[gui]
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool "extMerge"]
+	trustExitCode = false
+
+# Home
+[user]
+	name = Anthony Gray
+	email = grayts21@gmail.com
+[merge]
+ 	tool = bc3
+[diff]
+	tool = bc3
+	algorithm = histogram
+#[mergetool "bc3"]
+#	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
+[difftool]
+	prompt = false
+
