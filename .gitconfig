@@ -1,33 +1,41 @@
 [alias]
-	alist = "!git config --list" # List of these alias
-	ali = "!git config --list | findstr 'alias'"
+	alist = "!git config --list"
+	alias = "!git config --list | findstr 'alias'"
 	amend = commit --amend --no-edit
 	ast = status --short --branch
-	aco = commit --all -m
+	acm = commit --all -m
+	aco = checkout
+	co = checkout
+	abr = branch
+	br = branch
+	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push ---;git push;echo --- Message used: "
 	ame = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
 	ames = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
 	amepu = rebase --stat --autosquash master..HEAD
 	alogc = log -3
+	alo = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
 	alog = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
 	aloga = log --all --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
 	alogh = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
 	alogm = log master --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
 	alogl = log --decorate=full --max-count=1
-	ashfi = show --name-only 
-	aundo = reset --mixed HEAD~1 # should this be --soft or --mixed
+	ash = show HEAD
+	ashfi = show --name-only
+	aundo = reset --mixed HEAD~1
 	aunco = reset --soft HEAD~1
-	ashow = show HEAD
 	atopush = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	asquall = rebase --interactive --stat --autosquash HEAD~4
 	asqu = rebase --interactive --stat --autosquash --root
 	areb = rebase --interactive --stat --autosquash --root
 	ahist = reflog
 	aadd = add -A # add and look for renamed files
+	apu = push -u origin
+[diff]
+	algorithm = histogram
 [help]
 	autocorrect = 1
 [core]
-	editor = notepad
 	autocrlf = false
+	editor = notepad
 	symlinks = true
 [sequence]
 	editor = notepad
@@ -36,30 +44,46 @@
  	abbreviateCommands = true
  	instructionFormat = " |%d %s [%cn] (%cD)"
  	stat = true
+[merge]
+	algorithm = histogram
 [push]
 	default = matching
 [branch]
 	autosetuprebase = always
-#[gui]
+[gui]
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[mergetool "extMerge"]
-	trustExitCode = false
-
-# Home
+##############################
+# Progressive
 [user]
-	name = Anthony Gray
-	email = grayts21@gmail.com
+	name = Tony Gray
+	email = agray3@progressive.com
 [merge]
  	tool = bc3
 [diff]
 	tool = bc3
-	algorithm = histogram
-#[mergetool "bc3"]
-#	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
+[mergetool "bc3"]
+	path = C:/Program Files (x86)/Beyond Compare 4/bcomp.exe
 [difftool]
 	prompt = false
-
+[credential]
+	interactive = never
+	authority = Windows
+	helper = wincred
+[http]
+	sslbackend = schannel
+	schannelCheckRevoke=false
+##############################
+# Home
+[user]
+	name = Anthony Gray
+	email = grayts21@gmail.com
+#[mergetool "bc3"]
+#	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
+[mergetool "extMerge"]
+	trustExitCode = false
+[difftool]
+	prompt = false
