@@ -13,17 +13,17 @@
 	ames = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
 	amepu = rebase --stat --autosquash master..HEAD
 	alogc = log -3
-	alo = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alog = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	aloga = log --all --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alogh = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alogm = log master --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	alo = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cr)%Creset' --graph
+	alog = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cr)%Creset' --graph
+	aloga = log --all --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cr)%Creset' --graph
+	alogh = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cr)%Creset' --graph
+	alogm = log master --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cr)%Creset' --graph
 	alogl = log --decorate=full --max-count=1
 	ash = show HEAD
 	ashfi = show --name-only
 	aundo = reset --mixed HEAD~1
 	aunco = reset --soft HEAD~1
-	atopush = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+	atopush = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cr)%Creset' --graph
 	asqu = rebase --interactive --stat --autosquash --root
 	areb = rebase --interactive --stat --autosquash --root
 	ahist = reflog
