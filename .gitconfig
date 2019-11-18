@@ -1,34 +1,53 @@
 [alias]
+ # adis Discard changes for sepcified file
+	adis = checkout --
+
 	alist = "!git config --list"
 	alias = "!git config --list | findstr 'alias'"
-	amend = commit --amend --no-edit
-	ast = status --short --branch
-	acm = commit --all -m
+ # amc amend last commit
+	amc = commit --amend -m
+	ast = status --short --branch --show-stash
+	ast1 = status --porcelain --branch --show-stash
+ # astt status, no untracked files (which takes more time)
+	astt = status --porcelain --branch --show-stash -uno
+	acm = commit --all --branch -m
+ # acme commit without a message on the command line (will use editor)
+	acme = commit --all --branch
 	aco = checkout
 	co = checkout
 	abr = branch
 	br = branch
+	 # acp add, commit param 1, push
 	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push ---;git push;echo --- Message used: "
-	ame = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
-	ames = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
-	amepu = rebase --stat --autosquash master..HEAD
-	alogc = log -3
-	alo = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alog = log --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	aloga = log --all --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alogh = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alogm = log master --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
-	alogl = log --decorate=full --max-count=1
-	ash = show HEAD
-	ashfi = show --name-only
-	aundo = reset --mixed HEAD~1
-	aunco = reset --soft HEAD~1
-	atopush = log master..HEAD --pretty=' %C(yellow)%h%Creset |%d %Cblue%s%Creset %C(cyan)[%cn]%Creset %Cgreen(%cD)%Creset' --graph
+ # amto merge to param 1 branch
+	amto = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
+	amtos = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
+ # am merge --no-ff no fast forward, creates a commit
+	am = merge --no-ff
+ # amf merge -ff-only only run if fast forward can be used
+	amf = merge --ff-only
+	alo = log --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	alog = log --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	aloga = log --all --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	alogh = log master..HEAD --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	alogm = log master --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+ # auc undo last commit to working area
+	auc = reset --mixed HEAD~1
+ # aus remove from staging, specify a file or .
+	aus = reset HEAD
+	arh = reset --hard
+ # atp - Show what would be pushed
+	atp = log master..HEAD --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+ # ari rebase interactive
+	ari = rebase --interactive --stat
 	asqu = rebase --interactive --stat --autosquash --root
-	areb = rebase --interactive --stat --autosquash --root
-	ahist = reflog
 	aadd = add -A # add and look for renamed files
-	apu = push -u origin
+	apu = push
+	asta = stash push --all
+	astu = stash pop
+	astl = stash list
+	asts = stash show
+
 [diff]
 	algorithm = histogram
 [help]
@@ -40,8 +59,8 @@
 [sequence]
 	editor = notepad
 [Rebase]
- 	autoSquash = true
- 	abbreviateCommands = true
+# 	abbreviateCommands = true
+  missingCommitsCheck = error
  	instructionFormat = " |%d %s [%cn] (%cD)"
  	stat = true
 [merge]
@@ -52,10 +71,25 @@
 	autosetuprebase = always
 [gui]
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+#	clean = git-lfs clean -- %f
+#	smudge = git-lfs smudge -- %f
+#	process = git-lfs filter-process
+#	required = true
+[color "status"]
+	header = blue
+	added = green
+	updated = "magenta ul bold"
+	changed = green
+	untracked = "blue normal ul"
+	branch = "green ul"
+	nobranch = red
+	modified = red
+	ui = true
+	# normal, black, red, green, yellow, blue, magenta, cyan and white;
+	# bold, dim, ul, blink and reverse.
+
+
+
 ##############################
 # Progressive
 [user]
@@ -76,10 +110,11 @@
 [http]
 	sslbackend = schannel
 	schannelCheckRevoke=false
+
 ##############################
 # Home
 [user]
-	name = Anthony Gray
+	name = Tony Gray
 	email = grayts21@gmail.com
 #[mergetool "bc3"]
 #	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
