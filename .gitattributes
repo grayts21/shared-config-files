@@ -1,0 +1,29 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for Visual Studio
+*.cs     diff=csharp
+*.sln    merge=union
+*.csproj merge=union
+*.vbproj merge=union
+*.fsproj merge=union
+*.dbproj merge=union
+
+# Standard to msysgit
+*.rtf	 diff=astextplain
+*.RTF	 diff=astextplain
+
+# Binary files
+*.jpg binary
+*.gif binary
+*.png binary
+*.jpeg binary
+*.jar binary
+*.mp3 binary
+*.mp4 binary
+*.ogv binary
+*.webm binary
+*.swf binary
+*.swc binary
+*.fla binary
+*.xap binary
