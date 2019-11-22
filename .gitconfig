@@ -1,7 +1,7 @@
 [alias]
  # adis Discard changes for sepcified file
 	adis = checkout --
-
+ # alist, alias config list commands
 	alist = "!git config --list"
 	alias = "!git config --list | findstr 'alias'"
  # amc amend last commit
@@ -11,6 +11,7 @@
  # astt status, no untracked files (which takes more time)
 	astt = status --porcelain --branch --show-stash -uno
 	acm = commit --all --branch -m
+	acma = commit -m
  # acme commit without a message on the command line (will use editor)
 	acme = commit --all --branch
 	aco = checkout
@@ -43,11 +44,11 @@
 	asqu = rebase --interactive --stat --autosquash --root
 	aadd = add -A # add and look for renamed files
 	apu = push
-	asta = stash push --all
+	pu = push
+	asts = stash push --all
 	astu = stash pop
 	astl = stash list
 	asts = stash show
-
 [diff]
 	algorithm = histogram
 [help]
@@ -60,7 +61,7 @@
 	editor = notepad
 [Rebase]
 # 	abbreviateCommands = true
-  missingCommitsCheck = error
+	missingCommitsCheck = error
  	instructionFormat = " |%d %s [%cn] (%cD)"
  	stat = true
 [merge]
@@ -71,10 +72,10 @@
 	autosetuprebase = always
 [gui]
 [filter "lfs"]
-#	clean = git-lfs clean -- %f
-#	smudge = git-lfs smudge -- %f
-#	process = git-lfs filter-process
-#	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [color "status"]
 	header = blue
 	added = green
@@ -87,11 +88,8 @@
 	ui = true
 	# normal, black, red, green, yellow, blue, magenta, cyan and white;
 	# bold, dim, ul, blink and reverse.
-
-
-
 ##############################
-# Progressive
+# [Progressive]
 [user]
 	name = Tony Gray
 	email = agray3@progressive.com
@@ -110,9 +108,9 @@
 [http]
 	sslbackend = schannel
 	schannelCheckRevoke=false
-
+# [Progressive]
 ##############################
-# Home
+# [Home]
 [user]
 	name = Tony Gray
 	email = grayts21@gmail.com
@@ -122,3 +120,4 @@
 	trustExitCode = false
 [difftool]
 	prompt = false
+# [Home]

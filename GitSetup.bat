@@ -24,6 +24,7 @@ doskey ast=git ast $*
 
 rem acm commit
 doskey acm=git acm $*
+doskey c=git acm $*
 
 rem aco,co checkout
 doskey aco=git aco $*
@@ -62,13 +63,14 @@ rem aus Remove file from staging
 doskey aus=git aus $*
 
 rem auc undo last commit to working area
-doskey aun=git auc $*
+doskey auc=git auc $*
 
 rem ari rebase interactive
 doskey ari=git ari $*
 
-rem apu push
+rem apu,pu push
 doskey apu=git apu $*
+doskey pu=git pu $*
 
 rem atp Show what would be pushed
 doskey atp=git atp $*
