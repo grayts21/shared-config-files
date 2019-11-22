@@ -18,7 +18,7 @@
 	co = checkout
 	abr = branch
 	br = branch
-	 # acp add, commit param 1, push
+ # acp add, commit param 1, push
 	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push ---;git push;echo --- Message used: "
  # amto merge to param 1 branch
 	amto = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
@@ -37,7 +37,7 @@
  # aus remove from staging, specify a file or .
 	aus = reset HEAD
 	arh = reset --hard
- # atp - Show what would be pushed
+ # atp Show what would be pushed
 	atp = log master..HEAD --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
  # ari rebase interactive
 	ari = rebase --interactive --stat
@@ -60,7 +60,6 @@
 [sequence]
 	editor = notepad
 [Rebase]
-# 	abbreviateCommands = true
 	missingCommitsCheck = error
  	instructionFormat = " |%d %s [%cn] (%cD)"
  	stat = true
@@ -90,34 +89,33 @@
 	# bold, dim, ul, blink and reverse.
 ##############################
 # [Progressive]
-[user]
-	name = Tony Gray
-	email = agray3@progressive.com
-[merge]
- 	tool = bc3
-[diff]
-	tool = bc3
-[mergetool "bc3"]
-	path = C:/Program Files (x86)/Beyond Compare 4/bcomp.exe
-[difftool]
-	prompt = false
-[credential]
-#	interactive = never
-#	authority = Windows
-	helper = wincred
-[http]
-	sslbackend = schannel
-	schannelCheckRevoke=false
-# [Progressive]
+#PG#[user]
+#PG#	name = Tony Gray
+#PG#	email = agray3@progressive.com
+#PG#[merge]
+#PG# 	tool = bc3
+#PG#[diff]
+#PG#	tool = bc3
+#PG#[mergetool "bc3"]
+#PG#	path = C:/Program Files (x86)/Beyond Compare 4/bcomp.exe
+#PG#[difftool]
+#PG#	prompt = false
+#PG#[credential]
+#PG##	interactive = never
+#PG##	authority = Windows
+#PG#	helper = wincred
+#PG#[http]
+#PG#	sslbackend = schannel
+#PG#	schannelCheckRevoke=false
+
 ##############################
 # [Home]
-[user]
-	name = Tony Gray
-	email = grayts21@gmail.com
-#[mergetool "bc3"]
-#	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
-[mergetool "extMerge"]
-	trustExitCode = false
-[difftool]
-	prompt = false
-# [Home]
+#HM#[user]
+#HM#	name = Tony Gray
+#HM#	email = grayts21@gmail.com
+#HM##[mergetool "bc3"]
+#HM##	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
+#HM#[mergetool "extMerge"]
+#HM#	trustExitCode = false
+#HM#[difftool]
+#HM#	prompt = false
