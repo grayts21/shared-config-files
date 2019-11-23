@@ -1,79 +1,104 @@
-@echo off
-rem C:\Program Files\Git\cmd
+#DOS#@echo off
+#COMMENT# C:\Program Files\Git\cmd
 
-rem g for git
-doskey g=git
+#COMMENT# g for git
+#DOS#doskey g=git $*
+#BASH#alias g="git"
 
-rem ast status --short --branch
-doskey ast=git ast $*
+#COMMENT# ast status --short --branch
+#DOS#doskey ast=git ast $*
+#BASH#alias ast="git ast"
 
-rem asta stash push --all
-doskey asta=git asta $*
+#COMMENT# asts stash push --all
+#DOS#doskey asts=git asta $*
+#BASH#alias asts="git asta"
 
-rem astu stash pop
-doskey astu=git astu $*
+#COMMENT# astu stash pop
+#DOS#doskey astu=git astu $*
+#BASH#alias astu="git astu"
 
-rem astl stash list
-doskey astl=git astl $*
+#COMMENT# astl stash list
+#DOS#doskey astl=git astl $*
+#BASH#alias astl="git astl"
 
-rem asts stash show
-doskey asts=git asts $*
+#COMMENT# amc Amend last commit
+#DOS#doskey amc=git amc $*
+#BASH#alias amc="git amc"
 
-rem ame Amend last commit
-doskey ast=git ast $*
+#COMMENT# acm commit
+#DOS#doskey acm=git acm $*
+#BASH#alias acm="git acm"
+#DOS#doskey c=git acm $*
+#BASH#alias c="git acm"
 
-rem acm commit
-doskey acm=git acm $*
-doskey c=git acm $*
+#COMMENT# aco,co checkout
+#DOS#doskey aco=git aco $*
+#BASH#alias aco="git aco"
+#DOS#doskey co=git co $*
+#BASH#alias co="git co"
 
-rem aco,co checkout
-doskey aco=git aco $*
-doskey co=git co $*
+#COMMENT# br,abr branch
+#DOS#doskey br=git br $*
+#BASH#alias br="git br"
+#DOS#doskey abr=git abr $*
+#BASH#alias abr="git abr"
 
-rem br,abr branch
-doskey br=git br $*
-doskey abr=git abr $*
+#COMMENT# acp add, commit param 1, push
+#DOS#doskey acp=git acp $*
+#BASH#alias acp="git acp"
 
-rem acp add, commit param 1, push
-doskey acp=git acp $*
+#COMMENT# arh reset --hard
+#DOS#doskey arh=git arh $*
+#BASH#alias arh="git arh"
 
-rem arh reset --hard
-doskey arh=git arh $*
+#COMMENT# atp log what would push
+#DOS#doskey atp=git atp $*
+#BASH#alias atp="git atp"
 
-rem atp log what would push
-doskey atp=git atp $*
+#COMMENT# l,alo log
+#DOS#doskey l=git alo $*
+#BASH#alias l="git alo"
+#DOS#doskey alo=git alo $*
+#BASH#alias alo="git alo"
 
-rem l,alo log
-doskey l=git alo $*
-doskey alo=git alo $*
+#COMMENT# la log --all
+#DOS#doskey la=git aloga $*
+#BASH#alias la="git aloga"
 
-rem la log --all
-doskey la=git aloga $*
+#COMMENT# amto merge to param 1 branch
+#DOS#doskey amto=git amto $*
+#BASH#alias amto="git amto"
 
-rem amto merge to param 1 branch
-doskey amto=git amto $*
+#COMMENT# am merge --no-ff no fast forward, creates a commit
+#DOS#doskey am=git am $*
+#BASH#alias am="git am"
 
-rem am merge --no-ff no fast forward, creates a commit
-doskey am=git am $*
+#COMMENT# amf merge -ff-only only run if fast forward can be used
+#DOS#doskey amf=git amf $*
+#BASH#alias amf="git amf"
 
-rem amf merge -ff-only only run if fast forward can be used
-doskey amf=git amf $*
+#COMMENT# aus Remove file from staging
+#DOS#doskey aus=git aus $*
+#BASH#alias aus="git aus"
 
-rem aus Remove file from staging
-doskey aus=git aus $*
+#COMMENT# auc undo last commit to working area
+#DOS#doskey auc=git auc $*
+#BASH#alias auc="git auc"
 
-rem auc undo last commit to working area
-doskey auc=git auc $*
+#COMMENT# ari rebase interactive
+#DOS#doskey ari=git ari $*
+#BASH#alias ari="git ari"
 
-rem ari rebase interactive
-doskey ari=git ari $*
+#COMMENT# apu,pu push
+#DOS#doskey apu=git apu $*
+#BASH#alias apu="git apu"
+#DOS#doskey pu=git pu $*
+#BASH#alias pu="git pu"
 
-rem apu,pu push
-doskey apu=git apu $*
-doskey pu=git pu $*
+#COMMENT# atp Show what would be pushed
+#DOS#doskey atp=git atp $*
+#BASH#alias atp="git atp"
 
-rem atp Show what would be pushed
-doskey atp=git atp $*
-
-rem ari rebase interactive
-doskey ari=git ari $*
+#COMMENT# ari rebase interactive
+#DOS#doskey ari=git ari $*
+#BASH#alias ari="git ari"

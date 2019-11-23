@@ -48,7 +48,6 @@
 	asts = stash push --all
 	astu = stash pop
 	astl = stash list
-	asts = stash show
 [diff]
 	algorithm = histogram
 [help]
