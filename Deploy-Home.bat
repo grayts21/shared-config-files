@@ -5,7 +5,8 @@ del hm.gitconfig
 sed '/#COMMENT#/d' GitSetup.bat > bash1.bashrc
 sed '/#DOS#/d' bash1.bashrc > bash2.bashrc
 sed 's/#BASH#//g' bash2.bashrc > bash.bashrc
-copy bash.bashrc C:\Users\anthony\.bashrc
+copy bash.bashrc "C:\Users\anthony\.bashrc"
+copy bash.bashrc "C:\Program Files\Git\.bashrc"
 del bash.bashrc
 del bash1.bashrc
 del bash2.bashrc
