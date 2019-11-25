@@ -19,7 +19,7 @@
 	abr = branch
 	br = branch
  # acp add, commit param 1, push
-	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push ---;git push;echo --- Message used: "
+	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push origin HEAD ---;git push origin HEAD;echo --- Message used: "
  # amto merge to param 1 branch
 	amto = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
 	amtos = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
@@ -43,8 +43,8 @@
 	ari = rebase --interactive --stat
 	asqu = rebase --interactive --stat --autosquash --root
 	aadd = add -A # add and look for renamed files
-	apu = push
-	pu = push
+	apu = push origin HEAD
+	pu = push origin HEAD
 	asts = stash push --all
 	astu = stash pop
 	astl = stash list
