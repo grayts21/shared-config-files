@@ -81,13 +81,8 @@
 #DOS#doskey amto=git amto $*
 #BASH#alias amto="git amto"
 
-#COMMENT# am merge --no-ff no fast forward, creates a commit
-#DOS#doskey am=git am $*
-#BASH#alias am="git am"
-
-#COMMENT# am display merge commands
-#DOS#doskey am=git am $*
-#BASH#alias am="git am"
+#DOS#doskey am=echo --- amm=normal merge; amnf=--no-ff; amff=--ff-only
+#BASH#alias am="echo --- amm=normal merge; amnf=--no-ff; amff=--ff-only"
 
 #COMMENT# amm merge normal
 #DOS#doskey amm=git amm $*
@@ -119,19 +114,16 @@
 #DOS#doskey pu=git pu $*
 #BASH#alias pu="git pu"
 
-#COMMENT# pl = "!echo --- aplr=pull rebase; aplm=pull merge; aplmff=pull merge --ff-only; aplmnf=pull merge --no-ff"
-#DOS#doskey pl=git pl $*
-#BASH#alias pl="git pl"
+#DOS#doskey pl=echo --- aplr=pull rebase; apl=pull merge; aplff=pull merge --ff-only; aplnf=pull merge --no-ff
+#BASH#alias pl="echo --- aplr=pull rebase; apl=pull merge; aplff=pull merge --ff-only; aplnf=pull merge --no-ff"
 #DOS#doskey apl=git apl $*
 #BASH#alias apl="git apl"
 #DOS#doskey aplr=git aplr $*
 #BASH#alias aplr="git aplr"
-#DOS#doskey aplm=git aplm $*
-#BASH#alias aplm="git aplm"
-#DOS#doskey aplmff=git aplmff $*
-#BASH#alias aplmff="git aplmff"
-#DOS#doskey aplmnf=git aplmnf $*
-#BASH#alias aplmnf="git aplmnf"
+#DOS#doskey aplff=git aplff $*
+#BASH#alias aplff="git aplff"
+#DOS#doskey aplnf=git aplnf $*
+#BASH#alias aplnf="git aplnf"
 
 #COMMENT# afea=fetch --all; afe=fetch
 #DOS#doskey afea=git afea $*

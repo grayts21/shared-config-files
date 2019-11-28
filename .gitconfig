@@ -24,7 +24,7 @@
 	amto = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
 	amtos = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
  # am merge --no-ff no fast forward, creates a commit
-	am = "!echo --- amm=normal merge; --- amnf=--no-ff; --- amff=--ff-only"
+	am = "!echo --- amm=normal merge --- amnf=--no-ff --- amff=--ff-only"
 	amm = merge
 	amnf = merge --no-ff
  # amf merge -ff-only only run if fast forward can be used
@@ -48,12 +48,11 @@
 	aadd = add -A # add and look for renamed files
 	apu = push origin HEAD
 	pu = push origin HEAD
-	pl = "!echo --- aplr=pull rebase; aplm=pull merge; aplmff=pull merge --ff-only; aplmnf=pull merge --no-ff"
-	apl = "!echo --- aplr=pull rebase; aplm=pull merge; aplmff=pull merge --ff-only; aplmnf=pull merge --no-ff"
+	pl = "!echo --- aplr=pull rebase apl=pull merge aplff=pull merge --ff-only aplnf=pull merge --no-ff"
+	apl = pull --verbose
 	aplr = pull --rebase --verbose --autostash
-	aplm = pull --merge --verbose
-	aplmff = pull --merge --verbose --ff-only
-	aplmnf = pull --merge -verbose --no-ff
+	aplff = pull --verbose --ff-only
+	aplnf = pull --verbose --no-ff
 	afea = fetch --verbose --all
 	afe = fetch --verbose
 	asts = stash push --all
