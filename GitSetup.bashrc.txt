@@ -61,9 +61,21 @@
 #DOS#doskey alo=git alo $*
 #BASH#alias alo="git alo"
 
-#COMMENT# la log --all
-#DOS#doskey la=git aloga $*
-#BASH#alias la="git aloga"
+#COMMENT# ala log --all
+#DOS#doskey ala=git ala $*
+#BASH#alias la="git ala"
+
+#COMMENT# alh log master to HEAD
+#DOS#doskey alh=git alh $*
+#BASH#alias alh="git alh"
+
+#COMMENT# alm log master
+#DOS#doskey alm=git alm $*
+#BASH#alias alm="git alm"
+
+#COMMENT# ald log develop
+#DOS#doskey ald=git ald $*
+#BASH#alias ald="git ald"
 
 #COMMENT# amto merge to param 1 branch
 #DOS#doskey amto=git amto $*
@@ -106,6 +118,26 @@
 #BASH#alias apu="git apu"
 #DOS#doskey pu=git pu $*
 #BASH#alias pu="git pu"
+
+#COMMENT# pl = "!echo --- aplr=pull rebase; aplm=pull merge; aplmff=pull merge --ff-only; aplmnf=pull merge --no-ff"
+#DOS#doskey pl=git pl $*
+#BASH#alias pl="git pl"
+#DOS#doskey apl=git apl $*
+#BASH#alias apl="git apl"
+#DOS#doskey aplr=git aplr $*
+#BASH#alias aplr="git aplr"
+#DOS#doskey aplm=git aplm $*
+#BASH#alias aplm="git aplm"
+#DOS#doskey aplmff=git aplmff $*
+#BASH#alias aplmff="git aplmff"
+#DOS#doskey aplmnf=git aplmnf $*
+#BASH#alias aplmnf="git aplmnf"
+
+#COMMENT# afea=fetch --all; afe=fetch
+#DOS#doskey afea=git afea $*
+#BASH#alias afea="git afea"
+#DOS#doskey afe=git afe $*
+#BASH#alias afe="git afe"
 
 #COMMENT# atp Show what would be pushed
 #DOS#doskey atp=git atp $*
