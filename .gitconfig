@@ -24,12 +24,15 @@
 	amto = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
 	amtos = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
  # am merge --no-ff no fast forward, creates a commit
-	am = merge --no-ff
+	am = "!echo --- amm normal merge; --- amnf --no-ff; --- amff --ff-only"
+	amm = merge
+	amnf = merge --no-ff
  # amf merge -ff-only only run if fast forward can be used
-	amf = merge --ff-only
+	amff = merge --ff-only
 	alo = log --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
 	alog = log --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
 	aloga = log --all --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	alob = log $1 $2 $3 --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
 	alogh = log master..HEAD --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
 	alogm = log master --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
  # auc undo last commit to working area
@@ -67,7 +70,7 @@
 [push]
 	default = matching
 [branch]
-	autosetuprebase = always
+	autosetuprebase = never
 [gui]
 [filter "lfs"]
 	clean = git-lfs clean -- %f
