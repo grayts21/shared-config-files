@@ -48,7 +48,7 @@
 	aadd = add -A # add and look for renamed files
 	apu = push origin HEAD
 	pu = push origin HEAD
-	pl = "!echo --- aplr=pull rebase apl=pull merge aplff=pull merge --ff-only aplnf=pull merge --no-ff"
+	pl = "!echo Available Commands --- aplr=pull rebase apl=pull merge aplff=pull merge --ff-only aplnf=pull merge --no-ff"
 	apl = pull --verbose
 	aplr = pull --rebase --verbose --autostash
 	aplff = pull --verbose --ff-only
