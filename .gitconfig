@@ -7,9 +7,9 @@
  # amc amend last commit
 	amc = commit --amend -m
 	ast = status --short --branch --show-stash
-	ast1 = status --porcelain --branch --show-stash
+	ast1 = status --short --branch --show-stash
  # astt status, no untracked files (which takes more time)
-	astt = status --porcelain --branch --show-stash -uno
+	astt = status --short --branch --show-stash -uno
 	acm = commit --all --branch -m
 	acma = commit -m
  # acme commit without a message on the command line (will use editor)
