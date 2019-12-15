@@ -32,13 +32,12 @@
 	amnf = "!echo git merge --no-ff $1 $2 $3 $4 $5;git merge --no-ff"
  # amf merge -ff-only only run if fast forward can be used
 	amff = "!echo git merge --ff-only $1 $2 $3 $4 $5;git merge --ff-only"
-	aloq = log --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph
-	alo = "!echo git log --pretty='--' --graph $1 $2 $3 $4 $5;git log --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
-	alog = "!echo git log --pretty='--' --graph $1 $2 $3 $4 $5;git log --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
-	ala = "!echo git log --all --pretty='--' --graph $1 $2 $3 $4 $5;git log --all --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
-	alh = "!echo git log master..HEAD --pretty='--' --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
-	alm = "!echo git log master --pretty='--' --graph $1 $2 $3 $4 $5;git log master --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
-	ald = "!echo git log develop --pretty='--' --graph $1 $2 $3 $4 $5;git log develop --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	alo = "!echo git log --pretty=lg --graph $1 $2 $3 $4 $5;git log --pretty=lg --graph"
+	alog = "!echo git log --pretty=lg --graph $1 $2 $3 $4 $5;git log --pretty=lg --graph"
+	ala = "!echo git log --all --pretty=lg --graph $1 $2 $3 $4 $5;git log --all --pretty=lg --graph"
+	alh = "!echo git log master..HEAD --pretty=lg --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty=lg --graph"
+	alm = "!echo git log master --pretty=lg --graph $1 $2 $3 $4 $5;git log master --pretty=lg --graph"
+	ald = "!echo git log develop --pretty=lg --graph $1 $2 $3 $4 $5;git log develop --pretty=lg --graph"
  # auc undo last commit to working area
 	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
  # aum reset and put in workspace
@@ -47,7 +46,7 @@
 	aus = "!echo git reset HEAD $1 $2 $3 $4 $5;git reset HEAD"
 	arh = "!echo git reset --hard $1 $2 $3 $4 $5;git reset --hard"
  # atp Show what would be pushed
-	atp = "!echo git log master..HEAD --pretty='--' --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	atp = "!echo git log master..HEAD --pretty=lg --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty=lg --graph"
  # ari rebase interactive
 	ari = "!echo git rebase --interactive --stat $1 $2 $3 $4 $5;git rebase --interactive --stat"
 	asqu = "!echo git rebase --interactive --stat --autosquash --root $1 $2 $3 $4 $5;git rebase --interactive --stat --autosquash --root"
@@ -82,6 +81,8 @@
 	algorithm = histogram
 [push]
 	default = matching
+[pretty]
+  lg = %Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset
 [branch]
 	autosetuprebase = never
 [gui]
