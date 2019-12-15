@@ -1,63 +1,69 @@
 [alias]
- # adis Discard changes for sepcified file
-	adis = checkout --
+ # adis Discard changes for sepcified file, you can specify . for all
+	adis = "!echo git checkout --;git checkout --"
  # alist, alias config list commands
-	alist = "!git config --list"
-	alias = "!git config --list | findstr 'alias'"
+	alist = "!echo git config --list;git config --list"
+	alias = "!echo git config --list | grep 'alias';git config --list | grep 'alias'"
+	aliasl = "!echo git config --list | grep 'alias' | grep $1;git config --list | grep 'alias' | grep "
  # amc amend last commit
-	amc = commit --amend -m
-	ast = status --short --branch --show-stash
-	ast1 = status --short --branch --show-stash
+	amc = "!echo git commit --amend -m $1 $2 $3 $4 $5;git commit --amend -m"
+ # ast = status --short --branch --show-stash
+	ast = "!echo git status --short --branch --show-stash;git status --short --branch --show-stash"
  # astt status, no untracked files (which takes more time)
-	astt = status --short --branch --show-stash -uno
-	acm = commit --all --branch -m
-	acma = commit -m
+	astt = "!echo git status --short --branch --show-stash -uno $1 $2 $3 $4 $5;git status --short --branch --show-stash -uno"
+	acm = "!echo git commit --all --branch -m $1 $2 $3 $4 $5;git commit --all --branch -m"
+	acma = "!echo git commit -m $1 $2 $3 $4 $5;git commit -m"
  # acme commit without a message on the command line (will use editor)
-	acme = commit --all --branch
-	aco = checkout
-	co = checkout
-	abr = branch
-	br = branch
+	acme = "!echo git commit --all --branch $1 $2 $3 $4 $5;git commit --all --branch"
+	aco = "!echo git checkout $1 $2 $3 $4 $5;git checkout"
+	co = "!echo git checkout $1 $2 $3 $4 $5;git checkout"
+	abr = "!echo git branch $1 $2 $3 $4 $5;git branch"
+	br = "!echo git branch $1 $2 $3 $4 $5;git branch"
+	aba = "!echo git branch -vva $1 $2 $3 $4 $5;git branch -vva"
  # acp add, commit param 1, push
 	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push origin HEAD ---;git push origin HEAD;echo --- Message used: "
- # amto merge to param 1 branch
-	amto = "!git checkout $1;git merge @{-1}" # Param is branch to merge to (develop or master)
-	amtos = "!git checkout $1;git merge --squash @{-1}" # Param is branch to merge to (develop or master)
- # am merge --no-ff no fast forward, creates a commit
-	am = "!echo --- amm=normal merge --- amnf=--no-ff --- amff=--ff-only"
-	amm = merge
-	amnf = merge --no-ff
+ # amto merge to param 1 branch # Param is branch to merge to (develop or master)
+	amto = "!echo git checkout $1 $2 $3 $4 $5 - git merge @{-1};git checkout $1;git merge @{-1}"
+ # Param is branch to merge to (develop or master)
+	amtos = "!echo git checkout $1 $2 $3 $4 $5 - git merge --squash @{-1};git checkout $1;git merge --squash @{-1}"
+ # amh merge --no-ff no fast forward, creates a commit
+	amh = "!echo   amm=normal merge -- amnf=--no-ff -- amff=--ff-only"
+	amm = "!echo git merge $1 $2 $3 $4 $5;git merge"
+	amnf = "!echo git merge --no-ff $1 $2 $3 $4 $5;git merge --no-ff"
  # amf merge -ff-only only run if fast forward can be used
-	amff = merge --ff-only
-	alo = log --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
-	alog = log --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
-	ala = log --all --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
-	alh = log master..HEAD --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
-	alm = log master --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
-	ald = log develop --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	amff = "!echo git merge --ff-only $1 $2 $3 $4 $5;git merge --ff-only"
+	aloq = log --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph
+	alo = "!echo git log --pretty='--' --graph $1 $2 $3 $4 $5;git log --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	alog = "!echo git log --pretty='--' --graph $1 $2 $3 $4 $5;git log --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	ala = "!echo git log --all --pretty='--' --graph $1 $2 $3 $4 $5;git log --all --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	alh = "!echo git log master..HEAD --pretty='--' --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	alm = "!echo git log master --pretty='--' --graph $1 $2 $3 $4 $5;git log master --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
+	ald = "!echo git log develop --pretty='--' --graph $1 $2 $3 $4 $5;git log develop --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
  # auc undo last commit to working area
-	auc = reset --mixed HEAD~1
+	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
+ # aum reset and put in workspace
+	aum = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
  # aus remove from staging, specify a file or .
-	aus = reset HEAD
-	arh = reset --hard
+	aus = "!echo git reset HEAD $1 $2 $3 $4 $5;git reset HEAD"
+	arh = "!echo git reset --hard $1 $2 $3 $4 $5;git reset --hard"
  # atp Show what would be pushed
-	atp = log master..HEAD --pretty='%C(yellow)%h%Creset%d %Cblue%s%Creset %C(cyan)%cn%Creset %Cgreen%cr%Creset' --graph
+	atp = "!echo git log master..HEAD --pretty='--' --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty='%Cgreen%h%C(yellow bold)%d %C(blue)%s %C(cyan dim)%cn %C(green dim)%cr%Creset' --graph"
  # ari rebase interactive
-	ari = rebase --interactive --stat
-	asqu = rebase --interactive --stat --autosquash --root
-	aadd = add -A # add and look for renamed files
-	apu = push origin HEAD
-	pu = push origin HEAD
-	pl = "!echo Available Commands --- aplr=pull rebase apl=pull merge aplff=pull merge --ff-only aplnf=pull merge --no-ff"
-	apl = pull --verbose
-	aplr = pull --rebase --verbose --autostash
-	aplff = pull --verbose --ff-only
-	aplnf = pull --verbose --no-ff
-	afea = fetch --verbose --all
-	afe = fetch --verbose
-	asts = stash push --all
-	astu = stash pop
-	astl = stash list
+	ari = "!echo git rebase --interactive --stat $1 $2 $3 $4 $5;git rebase --interactive --stat"
+	asqu = "!echo git rebase --interactive --stat --autosquash --root $1 $2 $3 $4 $5;git rebase --interactive --stat --autosquash --root"
+	aadd = "!echo git add -A # add and look for renamed files $1 $2 $3 $4 $5;git add -A # add and look for renamed files"
+	apu = "!echo git push origin HEAD $1 $2 $3 $4 $5;git push origin HEAD"
+	pu = "!echo git push origin HEAD $1 $2 $3 $4 $5;git push origin HEAD"
+	pl = "!echo    aplr=pull rebase -- apl=pull merge -- aplff=pull merge --ff-only -- aplnf=pull merge --no-ff"
+	apl = "!echo git pull --verbose $1 $2 $3 $4 $5;git pull --verbose"
+	aplr = "!echo git pull --rebase --verbose --autostash $1 $2 $3 $4 $5;git pull --rebase --verbose --autostash"
+	aplff = "!echo git pull --verbose --ff-only $1 $2 $3 $4 $5;git pull --verbose --ff-only"
+	aplnf = "!echo git pull --verbose --no-ff $1 $2 $3 $4 $5;git pull --verbose --no-ff"
+	afea = "!echo git fetch --verbose --all $1 $2 $3 $4 $5;git fetch --verbose --all"
+	afe = "!echo git fetch --verbose $1 $2 $3 $4 $5;git fetch --verbose"
+	asts = "!echo git stash push --all $1 $2 $3 $4 $5;git stash push --all"
+	astu = "!echo git stash pop $1 $2 $3 $4 $5;git stash pop"
+	astl = "!echo git stash list $1 $2 $3 $4 $5;git stash list"
 [diff]
 	algorithm = histogram
 [help]

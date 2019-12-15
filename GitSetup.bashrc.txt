@@ -5,9 +5,21 @@
 #DOS#doskey g=git $*
 #BASH#alias g="git"
 
+#COMMENT# al alias
+#DOS#doskey al=git alias $*
+#BASH#alias al="git alias"
+
+#COMMENT# all alias param to search for
+#DOS#doskey all=git aliasl $*
+#BASH#alias all="git aliasl"
+
 #COMMENT# ast status --short --branch
 #DOS#doskey ast=git ast $*
 #BASH#alias ast="git ast"
+
+#COMMENT# adis Discard changes for sepcified file, you can specify . for all
+#DOS#doskey adis=git adis $*
+#BASH#alias adis="git adis"
 
 #COMMENT# asts stash push --all
 #DOS#doskey asts=git asts $*
@@ -81,8 +93,8 @@
 #DOS#doskey amto=git amto $*
 #BASH#alias amto="git amto"
 
-#DOS#doskey am=echo --- amm=normal merge; amnf=--no-ff; amff=--ff-only
-#BASH#alias am="echo --- amm=normal merge; amnf=--no-ff; amff=--ff-only"
+#DOS#doskey amh=git amh $*
+#BASH#alias amh="git amh"
 
 #COMMENT# amm merge normal
 #DOS#doskey amm=git amm $*
@@ -103,6 +115,10 @@
 #COMMENT# auc undo last commit to working area
 #DOS#doskey auc=git auc $*
 #BASH#alias auc="git auc"
+
+#COMMENT# aum reset and put in workspace
+#DOS#doskey aum=git aum $*
+#BASH#alias aum="git aum"
 
 #COMMENT# ari rebase interactive
 #DOS#doskey ari=git ari $*
