@@ -21,9 +21,13 @@
 #DOS#doskey adis=git adis $*
 #BASH#alias adis="git adis"
 
-#COMMENT# asts stash push --all
+#COMMENT# asts stash push
 #DOS#doskey asts=git asts $*
 #BASH#alias asts="git asts"
+
+#COMMENT# astsi stash push --include-untracked
+#DOS#doskey astsi=git astsi $*
+#BASH#alias astsi="git astsi"
 
 #COMMENT# astu stash pop
 #DOS#doskey astu=git astu $*
@@ -68,6 +72,8 @@
 #BASH#alias atp="git atp"
 
 #COMMENT# l,alo log
+#DOS#doskey al=git al $*
+#BASH#alias al="git al"
 #DOS#doskey l=git alo $*
 #BASH#alias l="git alo"
 #DOS#doskey alo=git alo $*
@@ -93,8 +99,8 @@
 #DOS#doskey amto=git amto $*
 #BASH#alias amto="git amto"
 
-#DOS#doskey amh=git amh $*
-#BASH#alias amh="git amh"
+#DOS#doskey am=git amh $*
+#BASH#alias am="git amh"
 
 #COMMENT# amm merge normal
 #DOS#doskey amm=git amm $*
@@ -104,7 +110,7 @@
 #DOS#doskey amff=git amff $*
 #BASH#alias amff="git amff"
 
-#COMMENT# amnf merge --no-ff Never do a FF
+#COMMENT# amnf merge --no-ff no fast forward, creates a commit
 #DOS#doskey amnf=git amnf $*
 #BASH#alias amnf="git amnf"
 
@@ -130,8 +136,8 @@
 #DOS#doskey pu=git pu $*
 #BASH#alias pu="git pu"
 
-#DOS#doskey pl=echo --- aplr=pull rebase; apl=pull merge; aplff=pull merge --ff-only; aplnf=pull merge --no-ff
-#BASH#alias pl="echo --- aplr=pull rebase; apl=pull merge; aplff=pull merge --ff-only; aplnf=pull merge --no-ff"
+#DOS#doskey pl=git pl
+#BASH#alias pl="git pl"
 #DOS#doskey apl=git apl $*
 #BASH#alias apl="git apl"
 #DOS#doskey aplr=git aplr $*

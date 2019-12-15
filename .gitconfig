@@ -1,66 +1,78 @@
 [alias]
- # adis Discard changes for sepcified file, you can specify . for all
+ # Revert, adis, Discard changes for sepcified file, specify . for all
 	adis = "!echo git checkout --;git checkout --"
- # alist, alias config list commands
+ # Config, alist=all config, alias=config alias, aliasl=config alias search
 	alist = "!echo git config --list;git config --list"
 	alias = "!echo git config --list | grep 'alias';git config --list | grep 'alias'"
 	aliasl = "!echo git config --list | grep 'alias' | grep $1;git config --list | grep 'alias' | grep "
- # amc amend last commit
+ # Commit, amc, amend last commit
 	amc = "!echo git commit --amend -m $1 $2 $3 $4 $5;git commit --amend -m"
- # ast = status --short --branch --show-stash
+ # Status, ast=status --short --branch --show-stash
 	ast = "!echo git status --short --branch --show-stash;git status --short --branch --show-stash"
- # astt status, no untracked files (which takes more time)
+ # Status, astt, no untracked files (which takes more time)
 	astt = "!echo git status --short --branch --show-stash -uno $1 $2 $3 $4 $5;git status --short --branch --show-stash -uno"
+ # Commit, acm=commit -a, acma=commit without adding
 	acm = "!echo git commit --all --branch -m $1 $2 $3 $4 $5;git commit --all --branch -m"
 	acma = "!echo git commit -m $1 $2 $3 $4 $5;git commit -m"
- # acme commit without a message on the command line (will use editor)
-	acme = "!echo git commit --all --branch $1 $2 $3 $4 $5;git commit --all --branch"
+ # Commit, aced, commit without a message on the command line (will use editor)
+	aced = "!echo git commit --all --branch $1 $2 $3 $4 $5;git commit --all --branch"
+ # Commit, aco+co
 	aco = "!echo git checkout $1 $2 $3 $4 $5;git checkout"
 	co = "!echo git checkout $1 $2 $3 $4 $5;git checkout"
+ # Branch, abr+br=branch with params, aba=branch -vva
 	abr = "!echo git branch $1 $2 $3 $4 $5;git branch"
 	br = "!echo git branch $1 $2 $3 $4 $5;git branch"
 	aba = "!echo git branch -vva $1 $2 $3 $4 $5;git branch -vva"
- # acp add, commit param 1, push
+ # Commit+Push, acp, add, commit -m param 1, push
 	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push origin HEAD ---;git push origin HEAD;echo --- Message used: "
- # amto merge to param 1 branch # Param is branch to merge to (develop or master)
-	amto = "!echo git checkout $1 $2 $3 $4 $5 - git merge @{-1};git checkout $1;git merge @{-1}"
- # Param is branch to merge to (develop or master)
-	amtos = "!echo git checkout $1 $2 $3 $4 $5 - git merge --squash @{-1};git checkout $1;git merge --squash @{-1}"
- # amh merge --no-ff no fast forward, creates a commit
+ # Merge, amto, merge to param 1 branch
+	amto = "!echo git merge @{-1}, git checkout $1, git merge @{-1} $1 $2 $3 $4 $5;git merge @{-1};git checkout $1;git merge @{-1}"
+ # Merge, amtos, merge --squash
+	amtos = "!echo --squash @{-1}, git checkout $1, git merge --squash @{-1} $1 $2 $3 $4 $5, git merge --squash @{-1};git checkout $1;git merge --squash @{-1}"
 	amh = "!echo   amm=normal merge -- amnf=--no-ff -- amff=--ff-only"
+ # Merge, amm, Normal merge
 	amm = "!echo git merge $1 $2 $3 $4 $5;git merge"
+ # Merge, amnf=merge --no-ff no fast forward, creates a commit
 	amnf = "!echo git merge --no-ff $1 $2 $3 $4 $5;git merge --no-ff"
- # amf merge -ff-only only run if fast forward can be used
+ # Merge, amff=merge --ff-only only run if fast forward can be used
 	amff = "!echo git merge --ff-only $1 $2 $3 $4 $5;git merge --ff-only"
+ # Log, alo|alog=log, ala=og --all, alm=log master, ald=log develop
+	al = "!echo Log, alo|alog=log, ala=log --all, alm=log master, ald=log develop"
 	alo = "!echo git log --pretty=lg --graph $1 $2 $3 $4 $5;git log --pretty=lg --graph"
 	alog = "!echo git log --pretty=lg --graph $1 $2 $3 $4 $5;git log --pretty=lg --graph"
 	ala = "!echo git log --all --pretty=lg --graph $1 $2 $3 $4 $5;git log --all --pretty=lg --graph"
-	alh = "!echo git log master..HEAD --pretty=lg --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty=lg --graph"
 	alm = "!echo git log master --pretty=lg --graph $1 $2 $3 $4 $5;git log master --pretty=lg --graph"
 	ald = "!echo git log develop --pretty=lg --graph $1 $2 $3 $4 $5;git log develop --pretty=lg --graph"
- # auc undo last commit to working area
+ # Reset, auc, undo last commit to working area
 	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
- # aum reset and put in workspace
+ # Reset, aum, put in workspace
 	aum = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
- # aus remove from staging, specify a file or .
+ # Reset, aus=remove from staging, specify a file or .
 	aus = "!echo git reset HEAD $1 $2 $3 $4 $5;git reset HEAD"
+ # Reset, arh, reset --hard
 	arh = "!echo git reset --hard $1 $2 $3 $4 $5;git reset --hard"
- # atp Show what would be pushed
+ # Show, atp, Show what would be pushed to master
 	atp = "!echo git log master..HEAD --pretty=lg --graph $1 $2 $3 $4 $5;git log master..HEAD --pretty=lg --graph"
- # ari rebase interactive
+ # Interactive rebase, ari=rebase -i, asqu=autosquash
 	ari = "!echo git rebase --interactive --stat $1 $2 $3 $4 $5;git rebase --interactive --stat"
 	asqu = "!echo git rebase --interactive --stat --autosquash --root $1 $2 $3 $4 $5;git rebase --interactive --stat --autosquash --root"
-	aadd = "!echo git add -A # add and look for renamed files $1 $2 $3 $4 $5;git add -A # add and look for renamed files"
+ # Add and look for renamed file
+	aadd = "!echo git add -A $1 $2 $3 $4 $5;git add -A"
+ # Push, apu and pu, git push
 	apu = "!echo git push origin HEAD $1 $2 $3 $4 $5;git push origin HEAD"
 	pu = "!echo git push origin HEAD $1 $2 $3 $4 $5;git push origin HEAD"
-	pl = "!echo    aplr=pull rebase -- apl=pull merge -- aplff=pull merge --ff-only -- aplnf=pull merge --no-ff"
+ # Pull, pl=Help, apl=pull, aplr=pull --rebase, aplff=pull --ff-only, aplnf=pull --no-ff
+	pl = "!echo Pull, pl=Help, apl=pull, aplr=pull --rebase, aplff=pull --ff-only, aplnf=pull --no-ff"
 	apl = "!echo git pull --verbose $1 $2 $3 $4 $5;git pull --verbose"
 	aplr = "!echo git pull --rebase --verbose --autostash $1 $2 $3 $4 $5;git pull --rebase --verbose --autostash"
 	aplff = "!echo git pull --verbose --ff-only $1 $2 $3 $4 $5;git pull --verbose --ff-only"
 	aplnf = "!echo git pull --verbose --no-ff $1 $2 $3 $4 $5;git pull --verbose --no-ff"
-	afea = "!echo git fetch --verbose --all $1 $2 $3 $4 $5;git fetch --verbose --all"
+ # Fetch, afe=fetch, afea=fetch --all
 	afe = "!echo git fetch --verbose $1 $2 $3 $4 $5;git fetch --verbose"
-	asts = "!echo git stash push --all $1 $2 $3 $4 $5;git stash push --all"
+	afea = "!echo git fetch --verbose --all $1 $2 $3 $4 $5;git fetch --verbose --all"
+ # Stash, asts=stash push
+	asts = "!echo git stash push $1 $2 $3 $4 $5;git stash push"
+	astsi = "!echo git stash push --include-untracked $1 $2 $3 $4 $5;git stash push --include-untracked"
 	astu = "!echo git stash pop $1 $2 $3 $4 $5;git stash pop"
 	astl = "!echo git stash list $1 $2 $3 $4 $5;git stash list"
 [diff]
