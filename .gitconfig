@@ -1,6 +1,6 @@
 [alias]
  # Revert, adis, Discard changes for sepcified file, specify . for all
-	adis = "!echo git checkout --;git checkout --"
+	adis = "!echo git checkout -- $1 $2 $3 $4 $5;git checkout --"
  # Config, alist=all config, alias=config alias, aliasl=config alias search
 	alist = "!echo git config --list;git config --list"
 	alias = "!echo git config --list | grep 'alias';git config --list | grep 'alias'"
@@ -56,6 +56,15 @@
  # Interactive rebase, ari=rebase -i, asqu=autosquash
 	ari = "!echo git rebase --interactive --stat $1 $2 $3 $4 $5;git rebase --interactive --stat"
 	asqu = "!echo git rebase --interactive --stat --autosquash --root $1 $2 $3 $4 $5;git rebase --interactive --stat --autosquash --root"
+ # Rebase, are=rebase, areto=rebase --onto, arec=rebase --continue, ares=rebase -skip, arew=am --show-current-patch
+  ar = "!echo Rebase, are=rebase, areto=rebase --onto, arec=rebase --continue, ares=rebase -skip, arew=am --show-current-patch"
+ 	are = "!echo git rebase $1 $2 $3 $4 $5;git rebase"
+ 	areto = "!echo git rebase --onto $1 $2 $3 $4 $5;git rebase --onto"
+	arec = "!echo git rebase --continue;git rebase --continue"
+	ares = "!echo git rebase --skip;git rebase --skip"
+	area = "!echo git rebase --abort;git rebase --abort"
+  arew = "!echo git am --show-current-patch $1 $2 $3 $4 $5;git am --show-current-patch"
+ #
  # Add and look for renamed file
 	aadd = "!echo git add -A $1 $2 $3 $4 $5;git add -A"
  # Push, apu and pu, git push

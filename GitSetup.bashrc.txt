@@ -71,6 +71,14 @@
 #DOS#doskey atp=git atp $*
 #BASH#alias atp="git atp"
 
+#COMMENT# are=rebase
+#DOS#doskey are=git are $*
+#BASH#alias are="git are"
+
+#COMMENT# areto=rebase --onto
+#DOS#doskey areto=git areto $*
+#BASH#alias areto="git areto"
+
 #COMMENT# l,alo log
 #DOS#doskey al=git al $*
 #BASH#alias al="git al"
@@ -79,9 +87,13 @@
 #DOS#doskey alo=git alo $*
 #BASH#alias alo="git alo"
 
+#COMMENT# aadd log --all
+#DOS#doskey aadd=git aadd $*
+#BASH#alias aadd="git aadd"
+
 #COMMENT# ala log --all
 #DOS#doskey ala=git ala $*
-#BASH#alias la="git ala"
+#BASH#alias ala="git ala"
 
 #COMMENT# alh log master to HEAD
 #DOS#doskey alh=git alh $*
@@ -160,3 +172,31 @@
 #COMMENT# ari rebase interactive
 #DOS#doskey ari=git ari $*
 #BASH#alias ari="git ari"
+
+#COMMENT# asqu rebase squarsh
+#DOS#doskey asqu=git asqu $*
+#BASH#alias asqu="git asqu"
+
+#COMMENT# aadd add -A for renames
+#DOS#doskey aadd=git aadd $*
+#BASH#alias aadd="git aadd"
+
+#COMMENT# ar rebase Rebase, are=rebase, areto=rebase --onto, arec=rebase --continue, ares=rebase -skip, arew=am --show-current-patch
+#DOS#doskey ar=git ar $*
+#BASH#alias ar="git ar"
+
+#COMMENT# arec rebase --continue
+#DOS#doskey arec=git arec $*
+#BASH#alias arec="git arec"
+
+#COMMENT# ares rebase --skip
+#DOS#doskey ares=git ares $*
+#BASH#alias ares="git ares"
+
+#COMMENT# area rebase --abort
+#DOS#doskey area=git area $*
+#BASH#alias area="git area"
+
+#COMMENT# arew rebase --continue
+#DOS#doskey arew=git arew $*
+#BASH#alias arew="git arew"
