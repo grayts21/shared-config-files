@@ -1,5 +1,6 @@
 sed s/#PG#//g .gitconfig > pg.gitconfig
 copy pg.gitconfig U:\.gitconfig
+copy pg.gitconfig C:\CYGWIN\home\agray3\.gitconfig
 del pg.gitconfig
 
 sed '/#COMMENT#/d' GitSetup.bashrc.txt > bash1.bashrc
@@ -18,3 +19,4 @@ copy dos.GitSetup "C:\Users\AGRAY3\GitSetup.bat"
 del dos.GitSetup
 del dos1.GitSetup
 del dos2.GitSetup
+pause

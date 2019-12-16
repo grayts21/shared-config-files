@@ -18,3 +18,4 @@ copy dos.GitSetup "C:\Users\anthony\GitSetup.bat"
 del dos.GitSetup
 del dos1.GitSetup
 del dos2.GitSetup
+pause
