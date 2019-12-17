@@ -32,6 +32,8 @@
 	amh = "!echo   amm=normal merge -- amnf=--no-ff -- amff=--ff-only"
  # Merge, amm, Normal merge
 	amm = "!echo git merge $1 $2 $3 $4 $5;git merge"
+	ammc = "!echo git merge --continue $1 $2 $3 $4 $5;git merge --continue"
+	amma = "!echo git merge --abort $1 $2 $3 $4 $5;git merge --abort"
  # Merge, amnf=merge --no-ff no fast forward, creates a commit
 	amnf = "!echo git merge --no-ff $1 $2 $3 $4 $5;git merge --no-ff"
  # Merge, amff=merge --ff-only only run if fast forward can be used
