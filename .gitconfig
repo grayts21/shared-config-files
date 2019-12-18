@@ -66,7 +66,6 @@
 	ares = "!echo git rebase --skip;git rebase --skip"
 	area = "!echo git rebase --abort;git rebase --abort"
   arew = "!echo git am --show-current-patch $1 $2 $3 $4 $5;git am --show-current-patch"
- #
  # Add and look for renamed file
 	aadd = "!echo git add -A $1 $2 $3 $4 $5;git add -A"
  # Push, apu and pu, git push
@@ -86,6 +85,12 @@
 	astsi = "!echo git stash push --include-untracked $1 $2 $3 $4 $5;git stash push --include-untracked"
 	astu = "!echo git stash pop $1 $2 $3 $4 $5;git stash pop"
 	astl = "!echo git stash list $1 $2 $3 $4 $5;git stash list"
+ # Show, Diff
+	ashb = "!echo git show --stat --oneline --no-commit-id -r -t $1 $2 $3 $4 $5;git show --stat --oneline --no-commit-id -r -t"
+	adib = "!echo git diff --stat --oneline $1 $2 $3 $4 $5;git diff --stat --oneline"
+# Difftool and Mergetool
+	adi = "!echo git difftool $1 $2 $3 $4 $5;git difftool"
+	amt = "!echo git mergetool $1 $2 $3 $4 $5;git mergetool"
 [diff]
 	algorithm = histogram
 [help]
@@ -131,14 +136,23 @@
 #PG#[user]
 #PG#	name = Tony Gray
 #PG#	email = agray3@progressive.com
-#PG#[merge]
-#PG# 	tool = bc3
 #PG#[diff]
 #PG#	tool = bc3
-#PG#[mergetool "bc3"]
-#PG#	path = C:/Program Files (x86)/Beyond Compare 4/bcomp.exe
 #PG#[difftool]
 #PG#	prompt = false
+#PG#[difftool "bc3"]
+#PG#	cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+#PG#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" /lefttitle=\"$LOCAL\" /righttitle=\"$REMOTE\" /leftreadonly /rightreadonly
+#PG#  # $(cygpath -w "$LOCAL")
+#PG#[merge]
+#PG# 	tool = bc3
+#PG#[mergetool]
+#PG#	prompt = false
+#PG#  keepBackup = false
+#PG#[mergetool "bc3"]
+#PG#	cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+#PG#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\" /lefttitle=\"$LOCAL\" /righttitle=\"$REMOTE\" /centertitle=\"$BASE\" /outputtitle=\"$MERGED\" /leftreadonly /rightreadonly /centerreadonly
+#PG#	trustExitCode = true
 #PG#[credential]
 #PG##	interactive = never
 #PG##	authority = Windows
@@ -152,9 +166,20 @@
 #HM#[user]
 #HM#	name = Tony Gray
 #HM#	email = grayts21@gmail.com
-#HM##[mergetool "bc3"]
-#HM##	path = C:\Program Files (x86)\WinMerge\WinMergeU.exe
-#HM#[mergetool "extMerge"]
-#HM#	trustExitCode = false
+#HM#[diff]
+#HM#	tool = extMerge
 #HM#[difftool]
 #HM#	prompt = false
+#HM#[difftool "extMerge"]
+#HM#	cmd = \"C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"
+#HM#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" /lefttitle=\"$(cygpath -w \"$LOCAL\")\" /righttitle=\"$(cygpath -w \"$REMOTE\")\" /leftreadonly /rightreadonly
+#HM#  # $(cygpath -w "$LOCAL")
+#HM#[merge]
+#HM# 	tool = extMerge
+#HM#[mergetool]
+#HM#	prompt = false
+#HM#  keepBackup = false
+#HM#[mergetool "extMerge"]
+#HM#	cmd = \"C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+#HM#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\" /lefttitle=\"$LOCAL\" /righttitle=\"$REMOTE\" /centertitle=\"$BASE\" /outputtitle=\"$MERGED\" /leftreadonly /rightreadonly /centerreadonly
+#HM#	trustExitCode = true

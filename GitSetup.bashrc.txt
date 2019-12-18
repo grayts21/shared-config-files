@@ -208,3 +208,19 @@
 #COMMENT# arew rebase --continue
 #DOS#doskey arew=git arew $*
 #BASH#alias arew="git arew"
+
+#COMMENT# ashb show oneline
+#DOS#doskey ashb=git ashb $*
+#BASH#alias ashb="git ashb"
+
+#COMMENT# adib diff oneline
+#DOS#doskey adib=git adib $*
+#BASH#alias adib="git adib"
+
+#COMMENT# adi difftool
+#DOS#doskey adi=git adi $*
+#BASH#alias adi="git adi"
+
+#COMMENT# amt mergetool
+#DOS#doskey amt=git amt $*
+#BASH#alias amt="git amt"
