@@ -118,6 +118,14 @@
 #DOS#doskey amm=git amm $*
 #BASH#alias amm="git amm"
 
+#COMMENT# ammc merge continue
+#DOS#doskey ammc=git ammc $*
+#BASH#alias ammc="git ammc"
+
+#COMMENT# amma merge abort
+#DOS#doskey amma=git amma $*
+#BASH#alias amma="git amma"
+
 #COMMENT# amff merge --ff-only only run if fast forward can be used
 #DOS#doskey amff=git amff $*
 #BASH#alias amff="git amff"
