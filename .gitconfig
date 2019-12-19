@@ -66,6 +66,9 @@
 	ares = "!echo git rebase --skip;git rebase --skip"
 	area = "!echo git rebase --abort;git rebase --abort"
   arew = "!echo git am --show-current-patch $1 $2 $3 $4 $5;git am --show-current-patch"
+ # git rebase master br-1 --strategy recursive --strategy-option theirs
+ # Does not matter what branch is current before this command.
+ #
  # Add and look for renamed file
 	aadd = "!echo git add -A $1 $2 $3 $4 $5;git add -A"
  # Push, apu and pu, git push
