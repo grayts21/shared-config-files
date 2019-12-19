@@ -221,6 +221,10 @@
 #DOS#doskey adi=git adi $*
 #BASH#alias adi="git adi"
 
+#COMMENT# adid difftool --dir-diff
+#DOS#doskey adid=git adid $*
+#BASH#alias adid="git adid"
+
 #COMMENT# amt mergetool
 #DOS#doskey amt=git amt $*
 #BASH#alias amt="git amt"

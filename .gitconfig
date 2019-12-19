@@ -92,8 +92,9 @@
 	ashb = "!echo git show --stat --oneline --no-commit-id -r -t $1 $2 $3 $4 $5;git show --stat --oneline --no-commit-id -r -t"
 	adib = "!echo git diff --stat --oneline $1 $2 $3 $4 $5;git diff --stat --oneline"
 # Difftool and Mergetool
-	adi = "!echo git difftool $1 $2 $3 $4 $5;git difftool"
-	amt = "!echo git mergetool $1 $2 $3 $4 $5;git mergetool"
+	adi = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
+	adid = "!echo git difftool --dir-diff $1 $2 $3 $4 $5;git difftool --dir-diff"
+	amt = "!echo git mergetool --prompt $1 $2 $3 $4 $5;git mergetool --prompt"
 [diff]
 	algorithm = histogram
 [help]
@@ -186,3 +187,16 @@
 #HM#	cmd = \"C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 #HM#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\" /lefttitle=\"$LOCAL\" /righttitle=\"$REMOTE\" /centertitle=\"$BASE\" /outputtitle=\"$MERGED\" /leftreadonly /rightreadonly /centerreadonly
 #HM#	trustExitCode = true
+
+#HM#[merge]
+#HM#    tool = meld
+#HM#[mergetool "meld"]
+#HM#    cmd = \"C://Program Files (x86)//Meld//meld.exe\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\" --output \"$MERGED\"
+#HM#		path = \"C://Program Files (x86)//Meld//meld.exe\"
+#HM#[diff]
+#HM#    tool = meld
+#HM#[difftool]
+#HM#    prompt = false
+#HM#[difftool "meld"]
+#HM#    cmd = \"C://Program Files (x86)//Meld//meld.exe\" \"$LOCAL\" \"$REMOTE\"
+#HM#		path = \"C://Program Files (x86)//Meld//meld.exe\"
