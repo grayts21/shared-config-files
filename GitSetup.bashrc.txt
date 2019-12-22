@@ -228,3 +228,22 @@
 #COMMENT# amt mergetool
 #DOS#doskey amt=git amt $*
 #BASH#alias amt="git amt"
+
+#BASH#BaseSHA=HEAD
+#BASH#atts() {
+#BASH#	BaseSHA=`git rev-parse --short HEAD`
+#BASH#	echo "SHA: $BaseSHA"
+#BASH#	BaseBranch=`git branch | sed -n '/\* /s///p'`
+#BASH#  if [[ $BaseBranch =~ ^.*detached.*$ ]] ; then BaseBranch= ; fi
+#BASH#	echo "Branch: $BaseBranch"
+#BASH#	git checkout HEAD~
+#BASH#}
+#BASH#att() {
+#BASH#	git checkout HEAD~
+#BASH#}
+#BASH#atte() {
+#BASH#	if [[ "$BaseBranch" = "" ]] ; then git checkout $BaseSHA ; else git checkout $BaseBranch ; fi
+#BASH#	BaseSHA=
+#BASH#	BaseBranch=
+#BASH#	git ast
+#BASH#}

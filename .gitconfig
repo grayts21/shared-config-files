@@ -91,10 +91,15 @@
  # Show, Diff
 	ashb = "!echo git show --stat --oneline --no-commit-id -r -t $1 $2 $3 $4 $5;git show --stat --oneline --no-commit-id -r -t"
 	adib = "!echo git diff --stat --oneline $1 $2 $3 $4 $5;git diff --stat --oneline"
-# Difftool and Mergetool
+ # Difftool and Mergetool
 	adi = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
 	adid = "!echo git difftool --dir-diff $1 $2 $3 $4 $5;git difftool --dir-diff"
 	amt = "!echo git mergetool --prompt $1 $2 $3 $4 $5;git mergetool --prompt"
+ # Move back in time
+ # atts = "!git br a12345;git co HEAD~"
+#	att = "!git co HEAD~"
+#	attb = "!git co a12345;git ast"
+
 [diff]
 	algorithm = histogram
 [help]
