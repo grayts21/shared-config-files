@@ -237,13 +237,23 @@
 #BASH#  if [[ $BaseBranch =~ ^.*detached.*$ ]] ; then BaseBranch= ; fi
 #BASH#	echo "Branch: $BaseBranch"
 #BASH#	git checkout HEAD~
+#BASH#  git alo $BaseSHA...HEAD~2
 #BASH#}
 #BASH#att() {
-#BASH#	git checkout HEAD~
+#BASH#  if [[ "$1" = "" ]]
+#BASH#    then
+#BASH#      git checkout HEAD~
+#BASH#    else
+#BASH#      for ((i=0;i<$1;i++)); do {
+#BASH#        git checkout HEAD~
+#BASH#      }; done
+#BASH#  fi
+#BASH#  git alo $BaseSHA...HEAD~2
 #BASH#}
 #BASH#atte() {
 #BASH#	if [[ "$BaseBranch" = "" ]] ; then git checkout $BaseSHA ; else git checkout $BaseBranch ; fi
 #BASH#	BaseSHA=
 #BASH#	BaseBranch=
 #BASH#	git ast
+#BASH#  git alo $BaseSHA...HEAD~2
 #BASH#}
