@@ -95,6 +95,7 @@
 	adi = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
 	adid = "!echo git difftool --dir-diff $1 $2 $3 $4 $5;git difftool --dir-diff"
 	amt = "!echo git mergetool --prompt $1 $2 $3 $4 $5;git mergetool --prompt"
+ # Move branches around
 [diff]
 	algorithm = histogram
 [help]

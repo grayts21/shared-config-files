@@ -257,3 +257,29 @@
 #BASH#	git ast
 #BASH#  git alo $BaseSHA...HEAD~2
 #BASH#}
+#COMMENT# Branch swap, enter 2 args
+#BASH#absw() {
+#BASH#  if [[ "$1" = "" ]] || [[ "$2" = "" ]]
+#BASH#    then
+#BASH#      echo Enter 2 branch names as arguments
+#BASH#    else {
+#BASH#    	BaseSHA=`git rev-parse --short HEAD`
+#BASH#    	echo "SHA: $BaseSHA"
+#BASH#    	BaseBranch=`git branch | sed -n '/\* /s///p'`
+#BASH#      if [[ $BaseBranch =~ ^.*detached.*$ ]] ; then BaseBranch= ; fi
+#BASH#    	echo "Branch: $BaseBranch"
+#BASH#      git co $1
+#BASH#      git co -b aSaveMove
+#BASH#      git br --force --copy $2 $1
+#BASH#      git br --force --copy aSaveMove $2
+#BASH#    	if [[ "$BaseBranch" = "" ]] ; then git checkout $BaseSHA ; else git checkout $BaseBranch ; fi
+#BASH#      git br --delete --force aSaveMove
+#BASH#    	git ast
+#BASH#      git alo $1 $2 $BaseBranch
+#BASH#    	BaseSHA=
+#BASH#    	BaseBranch=
+#BASH#    }
+#BASH#  fi
+#BASH#}
+#COMMENT# Delete branch from all sources, including remote server
+#COMMENT##abda ()
