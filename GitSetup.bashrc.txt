@@ -59,6 +59,10 @@
 #DOS#doskey abr=git abr $*
 #BASH#alias abr="git abr"
 
+#COMMENT# acebr Create branch and checkout -b
+#DOS#doskey acrbr=git acrbr $*
+#BASH#alias acrbr="git acrbr"
+
 #COMMENT# acp add, commit param 1, push
 #DOS#doskey acp=git acp $*
 #BASH#alias acp="git acp"
@@ -221,6 +225,10 @@
 #DOS#doskey adi=git adi $*
 #BASH#alias adi="git adi"
 
+#COMMENT# adt difftool
+#DOS#doskey adt=git adt $*
+#BASH#alias adt="git adt"
+
 #COMMENT# adid difftool --dir-diff
 #DOS#doskey adid=git adid $*
 #BASH#alias adid="git adid"
@@ -269,11 +277,11 @@
 #BASH#      if [[ $BaseBranch =~ ^.*detached.*$ ]] ; then BaseBranch= ; fi
 #BASH#    	echo "Branch: $BaseBranch"
 #BASH#      git co $1
-#BASH#      git co -b --quiet aSaveMove
+#BASH#      git co -b aSaveMove
 #BASH#      git br --force --copy $2 $1
 #BASH#      git br --force --copy aSaveMove $2
 #BASH#    	if [[ "$BaseBranch" = "" ]] ; then git checkout $BaseSHA ; else git checkout $BaseBranch ; fi
-#BASH#      git br --delete --force --quiet aSaveMove
+#BASH#      git br --delete --force aSaveMove
 #BASH#    	git ast
 #BASH#      git alo master $1 $2 $BaseBranch
 #BASH#    	BaseSHA=
@@ -281,5 +289,3 @@
 #BASH#    }
 #BASH#  fi
 #BASH#}
-#COMMENT# Delete branch from all sources, including remote server
-#COMMENT##abda () --quiet

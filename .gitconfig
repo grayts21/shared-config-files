@@ -22,13 +22,34 @@
  # Branch, abr+br=branch with params, aba=branch -vva
 	abr = "!echo git branch $1 $2 $3 $4 $5;git branch"
 	br = "!echo git branch $1 $2 $3 $4 $5;git branch"
-	aba = "!echo git branch -vva $1 $2 $3 $4 $5;git branch -vva"
+	aba = "!echo git branch -vva;git branch -vva"
+	abc = "!echo git checkout -b $1 $2 $3 $4 $5;git checkout -b"
+	abd = "!echo git branch --delete $1 $2 $3 $4 $5;git branch --delete"
+	abdf = "!echo git branch --delete --force $1 $2 $3 $4 $5;git branch --delete --force"
+	abo = "!echo git remote show origin $1 $2 $3 $4 $5;git remote show origin"
+	abdal = "!echo --- checkout master;git checkout master;\
+		echo --- git branch -vva;git branch -vva;\
+		echo --- git remote show origin;git remote show origin;\
+		echo ---------------------------;\
+		echo --- git branch --delete --force $1 $2 $3 $4 $5;git branch --delete --force $1 $2 $3 $4 $5;\
+		echo --- git push --delete origin $1 $2 $3 $4 $5;git push --delete origin $1 $2 $3 $4 $5;\
+		echo --- git fetch --all --prune;git fetch --all --prune;\
+		echo ---------------------------;\
+		echo --- git branch -vva;git branch -vva;\
+		echo --- git remote show origin;git remote show origin;\
+		echo --- Deleted branch from local and remote: "
  # Commit+Push, acp, add, commit -m param 1, push
-	acp = "!echo --- git add ---;git add .;echo --- git commit ---;git commit -m \"$1\";echo --- git push origin HEAD ---;git push origin HEAD;echo --- Message used: "
+	acp = "!echo --- git add .;git add .;\
+		echo --- git commit -m \"$1\";git commit -m \"$1\";\
+		echo --- git push origin HEAD;git push origin HEAD;\
+		echo --- Message used: "
  # Merge, amto, merge to param 1 branch
-	amto = "!echo git merge @{-1}, git checkout $1, git merge @{-1} $1 $2 $3 $4 $5;git merge @{-1};git checkout $1;git merge @{-1}"
+	amto = "!echo --- git merge @{-1};git merge @{-1};\
+		echo --- git checkout $1;git checkout $1;\
+		echo --- git merge @{-1} $1 $2 $3 $4 $5;git merge @{-1}"
  # Merge, amtos, merge --squash
-	amtos = "!echo --squash @{-1}, git checkout $1, git merge --squash @{-1} $1 $2 $3 $4 $5, git merge --squash @{-1};git checkout $1;git merge --squash @{-1}"
+	amtos = "!echo --- git checkout $1;git checkout $1;\
+		echo --- git merge --squash @{-1} $1 $2 $3 $4 $5;git merge --squash @{-1}"
 	amh = "!echo   amm=normal merge -- amnf=--no-ff -- amff=--ff-only"
  # Merge, amm, Normal merge
 	amm = "!echo git merge $1 $2 $3 $4 $5;git merge"
@@ -45,10 +66,19 @@
 	ala = "!echo git log --all --pretty=lg --graph $1 $2 $3 $4 $5;git log --all --pretty=lg --graph"
 	alm = "!echo git log master --pretty=lg --graph $1 $2 $3 $4 $5;git log master --pretty=lg --graph"
 	ald = "!echo git log develop --pretty=lg --graph $1 $2 $3 $4 $5;git log develop --pretty=lg --graph"
+	alfp = "!echo git log --first-parent --pretty=lg --graph $1 $2 $3 $4 $5;git log --first-parent --pretty=lg --graph"
+	alrl = "!echo git log --reflog --pretty=lg --graph $1 $2 $3 $4 $5;git log --reflog --pretty=lg --graph"
+	alor = "!echo --- git fetch $1 $2 $3 $4 $5;git fetch;\
+		echo --- git log --pretty=lg --graph FETCH_HEAD;git log --pretty=lg --graph FETCH_HEAD"
+ # Reflog commands
+	arl = "!echo git reflog;git reflog"
+	arlg = "!echo git reflog | grep $1 $2 $3 $4 $5;git reflog | grep"
  # Reset, auc, undo last commit to working area
 	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
- # Reset, aum, put in workspace
-	aum = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
+ # Reset, artos aum, put in workspace, reset to Stage
+	artos = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
+ # Reset, artoc, reset to Changed
+	artoc = "!echo git reset --soft $1 $2 $3 $4 $5;git reset --soft"
  # Reset, aus=remove from staging, specify a file or .
 	aus = "!echo git reset HEAD $1 $2 $3 $4 $5;git reset HEAD"
  # Reset, arh, reset --hard
@@ -93,13 +123,13 @@
 	adib = "!echo git diff --stat --oneline $1 $2 $3 $4 $5;git diff --stat --oneline"
  # Difftool and Mergetool
 	adi = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
+	adt = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
 	adid = "!echo git difftool --dir-diff $1 $2 $3 $4 $5;git difftool --dir-diff"
 	amt = "!echo git mergetool --prompt $1 $2 $3 $4 $5;git mergetool --prompt"
- # Move branches around
 [diff]
 	algorithm = histogram
 [help]
-	autocorrect = 1
+	autocorrect = 0
 [core]
 	autocrlf = false
 	editor = notepad
