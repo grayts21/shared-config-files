@@ -5,6 +5,10 @@
 #DOS#doskey g=git $*
 #BASH#alias g="git"
 
+#COMMENT# adis Discard changes for sepcified file, you can specify . for all
+#DOS#doskey adis=git adis $*
+#BASH#alias adis="git adis"
+
 #COMMENT# al alias
 #DOS#doskey al=git alias $*
 #BASH#alias al="git alias"
@@ -13,39 +17,27 @@
 #DOS#doskey all=git aliasl $*
 #BASH#alias all="git aliasl"
 
+#COMMENT# amc Amend last commit
+#DOS#doskey amc=git amc $*
+#BASH#alias amc="git amc"
+
 #COMMENT# ast status --short --branch
 #DOS#doskey ast=git ast $*
 #BASH#alias ast="git ast"
 
-#COMMENT# adis Discard changes for sepcified file, you can specify . for all
-#DOS#doskey adis=git adis $*
-#BASH#alias adis="git adis"
-
-#COMMENT# asts stash push
-#DOS#doskey asts=git asts $*
-#BASH#alias asts="git asts"
-
-#COMMENT# astsi stash push --include-untracked
-#DOS#doskey astsi=git astsi $*
-#BASH#alias astsi="git astsi"
-
-#COMMENT# astu stash pop
-#DOS#doskey astu=git astu $*
-#BASH#alias astu="git astu"
-
-#COMMENT# astl stash list
-#DOS#doskey astl=git astl $*
-#BASH#alias astl="git astl"
-
-#COMMENT# amc Amend last commit
-#DOS#doskey amc=git amc $*
-#BASH#alias amc="git amc"
+#COMMENT# astt no untracked files (which takes more time)
+#DOS#doskey astt=git astt $*
+#BASH#alias astt="git astt"
 
 #COMMENT# acm commit
 #DOS#doskey acm=git acm $*
 #BASH#alias acm="git acm"
 #DOS#doskey c=git acm $*
 #BASH#alias c="git acm"
+
+#COMMENT# aced commit without a message on the command line (will use editor)
+#DOS#doskey aced=git aced $*
+#BASH#alias aced="git aced"
 
 #COMMENT# aco,co checkout
 #DOS#doskey aco=git aco $*
@@ -59,29 +51,64 @@
 #DOS#doskey abr=git abr $*
 #BASH#alias abr="git abr"
 
-#COMMENT# acebr Create branch and checkout -b
-#DOS#doskey acrbr=git acrbr $*
-#BASH#alias acrbr="git acrbr"
+#COMMENT# aba Show Branch with more information
+#DOS#doskey aba=git aba $*
+#BASH#alias aba="git aba"
+
+#COMMENT# abc Create branch and checkout -b
+#DOS#doskey abc=git abc $*
+#BASH#alias abc="git abc"
+
+#COMMENT# abd Delete branch, no force
+#DOS#doskey abd=git abd $*
+#BASH#alias abd="git abd"
+
+#COMMENT# abdf Delete branch, force, -D
+#DOS#doskey abdf=git abdf $*
+#BASH#alias abdf="git abdf"
+
+#COMMENT# abo remote show origin
+#DOS#doskey abo=git abo $*
+#BASH#alias abo="git abo"
+
+#COMMENT# abdal multi-commands to delete branch from local and remote origin and server
+#DOS#doskey abdal=git abdal $*
+#BASH#alias abdal="git abdal"
 
 #COMMENT# acp add, commit param 1, push
 #DOS#doskey acp=git acp $*
 #BASH#alias acp="git acp"
 
-#COMMENT# arh reset --hard
-#DOS#doskey arh=git arh $*
-#BASH#alias arh="git arh"
+#COMMENT# amto merge to param 1 branch
+#DOS#doskey amto=git amto $*
+#BASH#alias amto="git amto"
 
-#COMMENT# atp log what would push
-#DOS#doskey atp=git atp $*
-#BASH#alias atp="git atp"
+#COMMENT# amtos merge to param 1 branch, Squash
+#DOS#doskey amtos=git amtos $*
+#BASH#alias amtos="git amtos"
 
-#COMMENT# are=rebase
-#DOS#doskey are=git are $*
-#BASH#alias are="git are"
+#DOS#doskey am=git amh $*
+#BASH#alias am="git amh"
 
-#COMMENT# areto=rebase --onto
-#DOS#doskey areto=git areto $*
-#BASH#alias areto="git areto"
+#COMMENT# amm merge normal
+#DOS#doskey amm=git amm $*
+#BASH#alias amm="git amm"
+
+#COMMENT# ammc merge continue
+#DOS#doskey ammc=git ammc $*
+#BASH#alias ammc="git ammc"
+
+#COMMENT# amma merge abort
+#DOS#doskey amma=git amma $*
+#BASH#alias amma="git amma"
+
+#COMMENT# amnf merge --no-ff no fast forward, creates a commit
+#DOS#doskey amnf=git amnf $*
+#BASH#alias amnf="git amnf"
+
+#COMMENT# amff merge --ff-only only run if fast forward can be used
+#DOS#doskey amff=git amff $*
+#BASH#alias amff="git amff"
 
 #COMMENT# l,alo log
 #DOS#doskey al=git al $*
@@ -90,10 +117,8 @@
 #BASH#alias l="git alo"
 #DOS#doskey alo=git alo $*
 #BASH#alias alo="git alo"
-
-#COMMENT# aadd log --all
-#DOS#doskey aadd=git aadd $*
-#BASH#alias aadd="git aadd"
+#DOS#doskey alog=git alog $*
+#BASH#alias alog="git alog"
 
 #COMMENT# ala log --all
 #DOS#doskey ala=git ala $*
@@ -111,48 +136,87 @@
 #DOS#doskey ald=git ald $*
 #BASH#alias ald="git ald"
 
-#COMMENT# amto merge to param 1 branch
-#DOS#doskey amto=git amto $*
-#BASH#alias amto="git amto"
+#COMMENT# alfp log First parent, removing merges
+#DOS#doskey alfp=git alfp $*
+#BASH#alias alfp="git alfp"
 
-#DOS#doskey am=git amh $*
-#BASH#alias am="git amh"
+#COMMENT# alrl log what is in reflog, shows detached heads
+#DOS#doskey alrl=git alrl $*
+#BASH#alias alrl="git alrl"
 
-#COMMENT# amm merge normal
-#DOS#doskey amm=git amm $*
-#BASH#alias amm="git amm"
+#COMMENT# alor log what is in origin, after fetch
+#DOS#doskey alor=git alor $*
+#BASH#alias alor="git alor"
 
-#COMMENT# ammc merge continue
-#DOS#doskey ammc=git ammc $*
-#BASH#alias ammc="git ammc"
-
-#COMMENT# amma merge abort
-#DOS#doskey amma=git amma $*
-#BASH#alias amma="git amma"
-
-#COMMENT# amff merge --ff-only only run if fast forward can be used
-#DOS#doskey amff=git amff $*
-#BASH#alias amff="git amff"
-
-#COMMENT# amnf merge --no-ff no fast forward, creates a commit
-#DOS#doskey amnf=git amnf $*
-#BASH#alias amnf="git amnf"
-
-#COMMENT# aus Remove file from staging
-#DOS#doskey aus=git aus $*
-#BASH#alias aus="git aus"
+#COMMENT# arl simple reflog, and reflog with grep
+#DOS#doskey arl=git arl $*
+#BASH#alias arl="git arl"
+#DOS#doskey arlg=git arlg $*
+#BASH#alias arlg="git arlg"
 
 #COMMENT# auc undo last commit to working area
 #DOS#doskey auc=git auc $*
 #BASH#alias auc="git auc"
 
-#COMMENT# aum reset and put in workspace
-#DOS#doskey aum=git aum $*
-#BASH#alias aum="git aum"
+#COMMENT# Reset, artos, put in workspace, reset to Stage
+#DOS#doskey artos=git artos $*
+#BASH#alias artos="git artos"
+
+#COMMENT# Reset, artoc, reset to Changed
+#DOS#doskey artoc=git artoc $*
+#BASH#alias artoc="git artoc"
+
+#COMMENT# aus Remove file from staging
+#DOS#doskey aus=git aus $*
+#BASH#alias aus="git aus"
+
+#COMMENT# arh reset --hard
+#DOS#doskey arh=git arh $*
+#BASH#alias arh="git arh"
+
+#COMMENT# atp log what would push
+#DOS#doskey atp=git atp $*
+#BASH#alias atp="git atp"
 
 #COMMENT# ari rebase interactive
 #DOS#doskey ari=git ari $*
 #BASH#alias ari="git ari"
+
+#COMMENT# asqu rebase squarsh
+#DOS#doskey asqu=git asqu $*
+#BASH#alias asqu="git asqu"
+
+#COMMENT# ar rebase Rebase, are=rebase, areto=rebase --onto, arec=rebase --continue, ares=rebase -skip, arew=am --show-current-patch
+#DOS#doskey ar=git ar $*
+#BASH#alias ar="git ar"
+
+#COMMENT# are simple rebase
+#DOS#doskey are=git are $*
+#BASH#alias are="git are"
+
+#COMMENT# areto rebase --onto branch branch branch
+#DOS#doskey areto=git areto $*
+#BASH#alias areto="git areto"
+
+#COMMENT# arec rebase --continue
+#DOS#doskey arec=git arec $*
+#BASH#alias arec="git arec"
+
+#COMMENT# ares rebase --skip
+#DOS#doskey ares=git ares $*
+#BASH#alias ares="git ares"
+
+#COMMENT# area rebase --abort
+#DOS#doskey area=git area $*
+#BASH#alias area="git area"
+
+#COMMENT# arew rebase --show-current-patch
+#DOS#doskey arew=git arew $*
+#BASH#alias arew="git arew"
+
+#COMMENT# aadd log --all
+#DOS#doskey aadd=git aadd $*
+#BASH#alias aadd="git aadd"
 
 #COMMENT# apu,pu push
 #DOS#doskey apu=git apu $*
@@ -177,43 +241,23 @@
 #DOS#doskey afe=git afe $*
 #BASH#alias afe="git afe"
 
-#COMMENT# atp Show what would be pushed
-#DOS#doskey atp=git atp $*
-#BASH#alias atp="git atp"
+#COMMENT# asts stash push
+#DOS#doskey asts=git asts $*
+#BASH#alias asts="git asts"
 
-#COMMENT# ari rebase interactive
-#DOS#doskey ari=git ari $*
-#BASH#alias ari="git ari"
+#COMMENT# astsi stash push --include-untracked
+#DOS#doskey astsi=git astsi $*
+#BASH#alias astsi="git astsi"
 
-#COMMENT# asqu rebase squarsh
-#DOS#doskey asqu=git asqu $*
-#BASH#alias asqu="git asqu"
+#COMMENT# astu stash pop
+#DOS#doskey astu=git astu $*
+#BASH#alias astu="git astu"
 
-#COMMENT# aadd add -A for renames
-#DOS#doskey aadd=git aadd $*
-#BASH#alias aadd="git aadd"
+#COMMENT# astl stash list
+#DOS#doskey astl=git astl $*
+#BASH#alias astl="git astl"
 
-#COMMENT# ar rebase Rebase, are=rebase, areto=rebase --onto, arec=rebase --continue, ares=rebase -skip, arew=am --show-current-patch
-#DOS#doskey ar=git ar $*
-#BASH#alias ar="git ar"
-
-#COMMENT# arec rebase --continue
-#DOS#doskey arec=git arec $*
-#BASH#alias arec="git arec"
-
-#COMMENT# ares rebase --skip
-#DOS#doskey ares=git ares $*
-#BASH#alias ares="git ares"
-
-#COMMENT# area rebase --abort
-#DOS#doskey area=git area $*
-#BASH#alias area="git area"
-
-#COMMENT# arew rebase --continue
-#DOS#doskey arew=git arew $*
-#BASH#alias arew="git arew"
-
-#COMMENT# ashb show oneline
+#COMMENT# ashb show --online --no-commit-id
 #DOS#doskey ashb=git ashb $*
 #BASH#alias ashb="git ashb"
 

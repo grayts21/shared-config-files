@@ -11,9 +11,8 @@
 	ast = "!echo git status --short --branch --show-stash;git status --short --branch --show-stash"
  # Status, astt, no untracked files (which takes more time)
 	astt = "!echo git status --short --branch --show-stash -uno $1 $2 $3 $4 $5;git status --short --branch --show-stash -uno"
- # Commit, acm=commit -a, acma=commit without adding
+ # Commit, acm=commit -a, acmm=commit without adding
 	acm = "!echo git commit --all --branch -m $1 $2 $3 $4 $5;git commit --all --branch -m"
-	acma = "!echo git commit -m $1 $2 $3 $4 $5;git commit -m"
  # Commit, aced, commit without a message on the command line (will use editor)
 	aced = "!echo git commit --all --branch $1 $2 $3 $4 $5;git commit --all --branch"
  # Commit, aco+co
@@ -64,6 +63,7 @@
 	alo = "!echo git log --pretty=lg --graph $1 $2 $3 $4 $5;git log --pretty=lg --graph"
 	alog = "!echo git log --pretty=lg --graph $1 $2 $3 $4 $5;git log --pretty=lg --graph"
 	ala = "!echo git log --all --pretty=lg --graph $1 $2 $3 $4 $5;git log --all --pretty=lg --graph"
+	alh = "!echo git log --all --pretty=lg --graph HEAD..master;git log --all --pretty=lg --graph HEAD..master"
 	alm = "!echo git log master --pretty=lg --graph $1 $2 $3 $4 $5;git log master --pretty=lg --graph"
 	ald = "!echo git log develop --pretty=lg --graph $1 $2 $3 $4 $5;git log develop --pretty=lg --graph"
 	alfp = "!echo git log --first-parent --pretty=lg --graph $1 $2 $3 $4 $5;git log --first-parent --pretty=lg --graph"
@@ -75,7 +75,7 @@
 	arlg = "!echo git reflog | grep $1 $2 $3 $4 $5;git reflog | grep"
  # Reset, auc, undo last commit to working area
 	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
- # Reset, artos aum, put in workspace, reset to Stage
+ # Reset, artos, put in workspace, reset to Stage
 	artos = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
  # Reset, artoc, reset to Changed
 	artoc = "!echo git reset --soft $1 $2 $3 $4 $5;git reset --soft"
@@ -96,9 +96,6 @@
 	ares = "!echo git rebase --skip;git rebase --skip"
 	area = "!echo git rebase --abort;git rebase --abort"
   arew = "!echo git am --show-current-patch $1 $2 $3 $4 $5;git am --show-current-patch"
- # git rebase master br-1 --strategy recursive --strategy-option theirs
- # Does not matter what branch is current before this command.
- #
  # Add and look for renamed file
 	aadd = "!echo git add -A $1 $2 $3 $4 $5;git add -A"
  # Push, apu and pu, git push
@@ -207,7 +204,6 @@
 #HM#	prompt = false
 #HM#[difftool "extMerge"]
 #HM#	cmd = \"C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"
-#HM#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" /lefttitle=\"$(cygpath -w \"$LOCAL\")\" /righttitle=\"$(cygpath -w \"$REMOTE\")\" /leftreadonly /rightreadonly
 #HM#  # $(cygpath -w "$LOCAL")
 #HM#[merge]
 #HM# 	tool = extMerge
@@ -216,9 +212,7 @@
 #HM#  keepBackup = false
 #HM#[mergetool "extMerge"]
 #HM#	cmd = \"C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-#HM#	# cmd = \"C:\\Program Files (x86)\\Beyond Compare 4\\bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\" /lefttitle=\"$LOCAL\" /righttitle=\"$REMOTE\" /centertitle=\"$BASE\" /outputtitle=\"$MERGED\" /leftreadonly /rightreadonly /centerreadonly
 #HM#	trustExitCode = true
-
 #HM#[merge]
 #HM#    tool = meld
 #HM#[mergetool "meld"]
