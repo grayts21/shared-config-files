@@ -69,10 +69,10 @@
 	alfp = "!echo git log --first-parent --pretty=lg --graph $1 $2 $3 $4 $5;git log --first-parent --pretty=lg --graph"
 	alrl = "!echo git log --reflog --pretty=lg --graph $1 $2 $3 $4 $5;git log --reflog --pretty=lg --graph"
 	alor = "!echo --- git fetch $1 $2 $3 $4 $5;git fetch;\
-		echo --- git log --pretty=lg --graph FETCH_HEAD;git log --pretty=lg --graph FETCH_HEAD"
+		echo --- git log --pretty=lg --graph --remotes=origin;git log --pretty=lg --graph --remotes=origin"
  # Reflog commands
-	arl = "!echo git reflog;git reflog"
-	arlg = "!echo git reflog | grep $1 $2 $3 $4 $5;git reflog | grep"
+	arl = "!echo --- git reflog;git reflog"
+	arlg = "!echo git reflog - grep $1 $2 $3 $4 $5;git reflog | grep"
  # Reset, auc, undo last commit to working area
 	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
  # Reset, artos, put in workspace, reset to Stage
