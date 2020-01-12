@@ -51,6 +51,10 @@
 #DOS#doskey abr=git abr $*
 #BASH#alias abr="git abr"
 
+#COMMENT# abrr rename branch
+#DOS#doskey abrr=git abrr $*
+#BASH#alias abrr="git abrr"
+
 #COMMENT# aba Show Branch with more information
 #DOS#doskey aba=git aba $*
 #BASH#alias aba="git aba"
@@ -276,6 +280,14 @@
 #COMMENT# adid difftool --dir-diff
 #DOS#doskey adid=git adid $*
 #BASH#alias adid="git adid"
+
+#COMMENT# adic Show specified commit changes difftool --prompt $1~1..$1
+#DOS#doskey adic=git adic $*
+#BASH#alias adic="git adic"
+
+#COMMENT# adih Show changes from HEAD to specified commit difftool --prompt HEAD..$1
+#DOS#doskey adih=git adih $*
+#BASH#alias adih="git adih"
 
 #COMMENT# amt mergetool
 #DOS#doskey amt=git amt $*

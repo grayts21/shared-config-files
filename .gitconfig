@@ -37,6 +37,7 @@
 		echo --- git branch -vva;git branch -vva;\
 		echo --- git remote show origin;git remote show origin;\
 		echo --- Deleted branch from local and remote: "
+	abrr = "!echo git branch --force --move $1 $2 $3 $4 $5;git branch --force --move"
  # Commit+Push, acp, add, commit -m param 1, push
 	acp = "!echo --- git add .;git add .;\
 		echo --- git commit -m \"$1\";git commit -m \"$1\";\
@@ -121,8 +122,10 @@
  # Difftool and Mergetool
 	adi = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
 	adt = "!echo git difftool --prompt $1 $2 $3 $4 $5;git difftool --prompt"
-	adid = "!echo git difftool --dir-diff $1 $2 $3 $4 $5;git difftool --dir-diff"
+	adid = "!echo git difftool --dir-diff --no-symlinks $1 $2 $3 $4 $5;git difftool --dir-diff --no-symlinks"
 	amt = "!echo git mergetool --prompt $1 $2 $3 $4 $5;git mergetool --prompt"
+	adic = "!echo git difftool --dir-diff --no-symlinks $1~1..$1;git difftool --dir-diff --no-symlinks $1~1.."
+	adih = "!echo git difftool --dir-diff --no-symlinks HEAD..$1;git difftool --dir-diff --no-symlinks HEAD.."
 [diff]
 	algorithm = histogram
 [help]
