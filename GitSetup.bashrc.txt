@@ -162,13 +162,13 @@
 #DOS#doskey auc=git auc $*
 #BASH#alias auc="git auc"
 
-#COMMENT# Reset, artos, put in workspace, reset to Stage
-#DOS#doskey artos=git artos $*
-#BASH#alias artos="git artos"
+#COMMENT# Reset, ars, reset to Staging
+#DOS#doskey ars=git ars $*
+#BASH#alias ars="git ars"
 
-#COMMENT# Reset, artoc, reset to Changed
-#DOS#doskey artoc=git artoc $*
-#BASH#alias artoc="git artoc"
+#COMMENT# Reset, arc, reset to workspace
+#DOS#doskey arc=git arc $*
+#BASH#alias arc="git arc"
 
 #COMMENT# aus Remove file from staging
 #DOS#doskey aus=git aus $*

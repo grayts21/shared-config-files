@@ -76,10 +76,10 @@
 	arlg = "!echo git reflog - grep $1 $2 $3 $4 $5;git reflog | grep"
  # Reset, auc, undo last commit to working area
 	auc = "!echo git reset --mixed HEAD~1 $1 $2 $3 $4 $5;git reset --mixed HEAD~1"
- # Reset, artos, put in workspace, reset to Stage
-	artos = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
- # Reset, artoc, reset to Changed
-	artoc = "!echo git reset --soft $1 $2 $3 $4 $5;git reset --soft"
+ # Reset, ars, put in workspace, reset to Staging
+	ars = "!echo git reset --mixed $1 $2 $3 $4 $5;git reset --mixed"
+ # Reset, arc, reset to Changed
+	arc = "!echo git reset --soft $1 $2 $3 $4 $5;git reset --soft"
  # Reset, aus=remove from staging, specify a file or .
 	aus = "!echo git reset HEAD $1 $2 $3 $4 $5;git reset HEAD"
  # Reset, arh, reset --hard
